@@ -2,10 +2,10 @@
 import Image from 'next/image';
 import Container from '@/components/ui/container';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { CheckCircle, Users, BarChart3, Briefcase, Award, TrendingUp, Lightbulb } from 'lucide-react';
+import { CheckCircle, Users, BarChart3, Briefcase, Award, TrendingUp, Lightbulb, Target as TargetIconLucide, Rocket, Telescope } from 'lucide-react';
 
 // Helper component to represent the target icon, if needed for Our Values
-const Target = (props: React.SVGProps<SVGSVGElement>) => (
+const TargetIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
     <circle cx="12" cy="12" r="10"></circle>
     <circle cx="12" cy="12" r="6"></circle>
@@ -71,7 +71,7 @@ const values = [
     {
         title: 'Client-Centric',
         description: 'Our clients are at the heart of everything we do. We tailor our solutions to meet their unique needs.',
-        icon: Target,
+        icon: TargetIconLucide, // Using the lucide Target icon
     },
     {
         title: 'Results-Driven',
@@ -83,7 +83,8 @@ const values = [
 export default function AboutPage() {
   const initialDelay = 0.1;
   const introDelay = 0;
-  const journeyStartDelay = introDelay + 0.2;
+  const missionVisionDelay = introDelay + 0.2;
+  const journeyStartDelay = missionVisionDelay + 0.3; // Increased delay to account for Mission & Vision section
   const valuesStartDelay = journeyStartDelay + (achievements.length * initialDelay) + 0.2;
   const teamStartDelay = valuesStartDelay + (values.length * initialDelay) + 0.2;
 
@@ -94,6 +95,30 @@ export default function AboutPage() {
         <p className="text-lg sm:text-xl text-foreground/80 max-w-3xl mx-auto">
           We are a passionate team of designers, developers, and strategists dedicated to crafting exceptional digital experiences that drive growth and innovation for our clients.
         </p>
+      </section>
+
+      <section className="mb-16 animate-fade-in-up" style={{ animationDelay: `${missionVisionDelay}s` }}>
+        <h2 className="font-headline text-3xl font-bold mb-10 text-center text-primary">Our Mission & Vision</h2>
+        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div className="text-center md:text-left p-6 rounded-lg border border-border hover:shadow-lg transition-shadow duration-300">
+                <div className="flex justify-center md:justify-start items-center mb-4">
+                    <Rocket size={32} className="text-accent mr-3" />
+                    <h3 className="text-2xl font-semibold text-primary">Our Mission</h3>
+                </div>
+                <p className="text-foreground/70">
+                    To empower businesses with innovative and scalable digital solutions, fostering growth and driving success through technology and creative expertise.
+                </p>
+            </div>
+            <div className="text-center md:text-left p-6 rounded-lg border border-border hover:shadow-lg transition-shadow duration-300">
+                <div className="flex justify-center md:justify-start items-center mb-4">
+                    <Telescope size={32} className="text-accent mr-3" />
+                    <h3 className="text-2xl font-semibold text-primary">Our Vision</h3>
+                </div>
+                <p className="text-foreground/70">
+                    To be a leading digital agency recognized globally for our commitment to excellence, client success, and transformative digital experiences that shape the future.
+                </p>
+            </div>
+        </div>
       </section>
 
       <section className="mb-16 animate-fade-in-up" style={{ animationDelay: `${journeyStartDelay}s` }}>
@@ -125,7 +150,11 @@ export default function AboutPage() {
                     <Card className="text-center h-full group hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out border-border hover:border-accent/50">
                         <CardHeader className="items-center">
                             <div className="p-4 rounded-full bg-accent/10 text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-colors duration-300 mb-3">
-                                <value.icon className="h-10 w-10" />
+                                {value.title === 'Client-Centric' && typeof value.icon === 'function' && value.icon.name === 'TargetIconLucide' ? (
+                                    <TargetIconLucide className="h-10 w-10" />
+                                ) : (
+                                     value.icon && <value.icon className="h-10 w-10" />
+                                )}
                             </div>
                             <CardTitle className="text-xl font-semibold group-hover:text-primary transition-colors">{value.title}</CardTitle>
                         </CardHeader>
