@@ -1,6 +1,7 @@
+
 import Container from '@/components/ui/container';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { LaptopMinimal, Smartphone, CloudCog, Palette, Zap, TrendingUp, ShieldCheck } from 'lucide-react';
+import { LaptopMinimal, Smartphone, CloudCog, Palette, Zap, TrendingUp, ShieldCheck, Target, FileText, LifeBuoy } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
 interface Service {
@@ -53,6 +54,27 @@ const services: Service[] = [
     description: 'Providing expert guidance to navigate the digital landscape and achieve your business objectives.',
     icon: TrendingUp,
     details: ["Market Analysis", "Technology Roadmapping", "Agile Transformation", "Product Management"]
+  },
+  {
+    id: 'seo-marketing',
+    title: 'SEO & Digital Marketing',
+    description: 'Boost your online visibility and reach your target audience with our comprehensive SEO and digital marketing strategies.',
+    icon: Target,
+    details: ["Keyword Research & Strategy", "On-page & Off-page SEO", "PPC Campaign Management", "Social Media Marketing"]
+  },
+  {
+    id: 'content-creation',
+    title: 'Content Creation & Strategy',
+    description: 'Engage your audience with high-quality, compelling content tailored to your brand\'s voice and objectives.',
+    icon: FileText,
+    details: ["Blog Writing & Articles", "Copywriting for Web & Ads", "Video Production & Editing", "Infographic Design"]
+  },
+  {
+    id: 'maintenance-support',
+    title: 'Ongoing Maintenance & Support',
+    description: 'Ensure your digital assets remain secure, up-to-date, and perform optimally with our reliable support services.',
+    icon: LifeBuoy,
+    details: ["Regular Security Audits", "Software Updates & Patching", "Performance Monitoring", "Dedicated Support Channels"]
   },
 ];
 
