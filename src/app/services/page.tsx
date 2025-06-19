@@ -3,7 +3,7 @@ import Container from '@/components/ui/container';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { LaptopMinimal, Smartphone, CloudCog, Palette, Zap, TrendingUp, ShieldCheck, Target, FileText, LifeBuoy, Search, Lightbulb, Rocket, Users, ArrowRight } from 'lucide-react';
+import { LaptopMinimal, Smartphone, CloudCog, Palette, Zap, TrendingUp, ShieldCheck, Target as TargetIconLucide, FileText, LifeBuoy, Search, Lightbulb, Rocket, Users, ArrowRight } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
 interface Service {
@@ -12,6 +12,7 @@ interface Service {
   description: string;
   icon: LucideIcon;
   details: string[];
+  learnMoreLink: string;
 }
 
 const services: Service[] = [
@@ -20,63 +21,72 @@ const services: Service[] = [
     title: 'Web Application Development',
     description: 'Building responsive, high-performance web applications tailored to your business needs.',
     icon: LaptopMinimal,
-    details: ["Custom CRM/ERP Systems", "E-commerce Platforms", "SaaS Product Development", "API Integration"]
+    details: ["Custom CRM/ERP Systems", "E-commerce Platforms", "SaaS Product Development", "API Integration"],
+    learnMoreLink: '/services/web-dev'
   },
   {
     id: 'mobile-dev',
     title: 'Mobile App Development',
     description: 'Creating intuitive and engaging mobile experiences for iOS and Android platforms.',
     icon: Smartphone,
-    details: ["Native iOS & Android Apps", "Cross-Platform Development (React Native, Flutter)", "App Store Deployment", "Mobile UX/UI Design"]
+    details: ["Native iOS & Android Apps", "Cross-Platform Development (React Native, Flutter)", "App Store Deployment", "Mobile UX/UI Design"],
+    learnMoreLink: '/services/mobile-dev'
   },
   {
     id: 'cloud-devops',
     title: 'Cloud & DevOps Solutions',
     description: 'Optimizing your infrastructure and development lifecycle with modern cloud and DevOps practices.',
     icon: CloudCog,
-    details: ["Cloud Migration (AWS, Azure, GCP)", "CI/CD Pipeline Implementation", "Infrastructure as Code (IaC)", "Containerization (Docker, Kubernetes)"]
+    details: ["Cloud Migration (AWS, Azure, GCP)", "CI/CD Pipeline Implementation", "Infrastructure as Code (IaC)", "Containerization (Docker, Kubernetes)"],
+    learnMoreLink: '/services/cloud-devops'
   },
   {
     id: 'ui-ux',
     title: 'UI/UX Design',
     description: 'Crafting user-centric designs that are both visually appealing and highly functional.',
     icon: Palette,
-    details: ["User Research & Persona Development", "Wireframing & Prototyping", "Interaction Design", "Usability Testing"]
+    details: ["User Research & Persona Development", "Wireframing & Prototyping", "Interaction Design", "Usability Testing"],
+    learnMoreLink: '/services/ui-ux'
   },
   {
     id: 'performance-opt',
     title: 'Performance Optimization',
     description: 'Enhancing the speed, scalability, and reliability of your digital assets.',
     icon: Zap,
-    details: ["Code Refactoring", "Database Optimization", "Load Balancing", "Caching Strategies"]
+    details: ["Code Refactoring", "Database Optimization", "Load Balancing", "Caching Strategies"],
+    learnMoreLink: '/services/performance-opt'
   },
   {
     id: 'digital-strategy',
     title: 'Digital Strategy & Consulting',
     description: 'Providing expert guidance to navigate the digital landscape and achieve your business objectives.',
     icon: TrendingUp,
-    details: ["Market Analysis", "Technology Roadmapping", "Agile Transformation", "Product Management"]
+    details: ["Market Analysis", "Technology Roadmapping", "Agile Transformation", "Product Management"],
+    learnMoreLink: '/services/digital-strategy'
   },
   {
     id: 'seo-marketing',
     title: 'SEO & Digital Marketing',
     description: 'Boost your online visibility and reach your target audience with our comprehensive SEO and digital marketing strategies.',
-    icon: Target,
-    details: ["Keyword Research & Strategy", "On-page & Off-page SEO", "PPC Campaign Management", "Social Media Marketing"]
+    icon: TargetIconLucide,
+    details: ["Keyword Research & Strategy", "On-page & Off-page SEO", "PPC Campaign Management", "Social Media Marketing"],
+    learnMoreLink: '/services/seo-marketing'
   },
   {
     id: 'content-creation',
     title: 'Content Creation & Strategy',
     description: 'Engage your audience with high-quality, compelling content tailored to your brand\'s voice and objectives.',
     icon: FileText,
-    details: ["Blog Writing & Articles", "Copywriting for Web & Ads", "Video Production & Editing", "Infographic Design"]
+    details: ["Blog Writing & Articles", "Copywriting for Web & Ads", "Video Production & Editing", "Infographic Design"],
+    learnMoreLink: '/services/content-creation'
   },
   {
     id: 'maintenance-support',
     title: 'Ongoing Maintenance & Support',
     description: 'Ensure your digital assets remain secure, up-to-date, and perform optimally with our reliable support services.',
     icon: LifeBuoy,
-    details: ["Regular Security Audits", "Software Updates & Patching", "Performance Monitoring", "Dedicated Support Channels"]
+    details: ["Regular Security Audits", "Software Updates & Patching", "Performance Monitoring", "Dedicated Support Channels"],
+    learnMoreLink: '/services/maintenance-support'
   },
 ];
 
@@ -106,7 +116,7 @@ const approachSteps = [
 export default function ServicesPage() {
   const initialAnimationDelay = 0.1;
   return (
-    <Container className="py-8 sm:py-12 lg:py-16"> {/* Adjusted top padding */}
+    <Container className="py-8 sm:py-12 lg:py-16">
       <section className="text-center mb-12 sm:mb-16 animate-fade-in-up">
         <h1 className="font-headline text-4xl sm:text-5xl font-extrabold mb-4 text-primary">Our Services</h1>
         <p className="text-lg sm:text-xl text-foreground/80 max-w-3xl mx-auto">
@@ -126,14 +136,19 @@ export default function ServicesPage() {
               </CardHeader>
               <CardContent className="flex-grow flex flex-col">
                 <CardDescription className="text-foreground/70 mb-4 flex-grow">{service.description}</CardDescription>
-                <ul className="space-y-2 text-sm text-foreground/60">
-                  {service.details.map((detail, i) => (
+                <ul className="space-y-2 text-sm text-foreground/60 mb-6">
+                  {service.details.slice(0, 3).map((detail, i) => ( // Show first 3 details
                     <li key={i} className="flex items-center">
                       <ShieldCheck size={16} className="mr-2 text-accent flex-shrink-0" />
                       <span>{detail}</span>
                     </li>
                   ))}
                 </ul>
+                <Button variant="outline" asChild className="mt-auto group-hover:bg-accent group-hover:text-accent-foreground group-hover:border-accent transition-colors duration-300">
+                  <Link href={service.learnMoreLink}>
+                    Learn More <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
+                  </Link>
+                </Button>
               </CardContent>
             </Card>
           </div>
@@ -169,7 +184,7 @@ export default function ServicesPage() {
       </section>
 
       <section className="bg-primary/10 py-12 sm:py-16 rounded-lg animate-fade-in-up" style={{animationDelay: `${(services.length + approachSteps.length) * initialAnimationDelay}s`}}>
-        <Container className="py-0"> {/* Override default Container padding for this specific section */}
+        <Container className="py-0">
           <div className="text-center max-w-3xl mx-auto">
             <Lightbulb className="h-12 w-12 text-accent mx-auto mb-4" />
             <h2 className="font-headline text-3xl md:text-4xl font-extrabold text-primary mb-6">
