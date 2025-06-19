@@ -1,9 +1,10 @@
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import Container from '@/components/ui/container';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
-import { ArrowRight, LaptopMinimal, Smartphone, Palette, Layers, Briefcase } from 'lucide-react';
+import { ArrowRight, LaptopMinimal, Smartphone, Palette, Layers, Briefcase, Quote } from 'lucide-react';
 
 const featuredServices = [
   {
@@ -31,8 +32,8 @@ const featuredServices = [
     description: 'Designing user-centric interfaces that are both beautiful and highly functional.',
     icon: Palette,
     href: '/services#ui-ux',
-    bgColor: 'bg-secondary/50', // A different shade for variety
-    textColor: 'text-secondary-foreground', // Ensure contrast
+    bgColor: 'bg-secondary/50', 
+    textColor: 'text-secondary-foreground', 
     hoverBgColor: 'hover:bg-secondary',
     hoverTextColor: 'hover:text-secondary-foreground/80'
   },
@@ -57,7 +58,36 @@ const portfolioHighlights = [
   },
 ];
 
+const testimonials = [
+  {
+    id: 't1',
+    quote: "WBMCZ transformed our online presence. Their team is professional, creative, and incredibly effective. Highly recommended!",
+    name: 'Sarah Miller',
+    title: 'CEO, Tech Solutions Inc.',
+    avatarUrl: 'https://placehold.co/100x100.png',
+    dataAiHint: 'person avatar',
+  },
+  {
+    id: 't2',
+    quote: "Working with WBMCZ was a game-changer for our marketing efforts. The new website they built exceeded all our expectations.",
+    name: 'John Davis',
+    title: 'Marketing Director, Style Co.',
+    avatarUrl: 'https://placehold.co/100x100.png',
+    dataAiHint: 'person avatar',
+  },
+  {
+    id: 't3',
+    quote: "The mobile app developed by WBMCZ is fantastic. It's intuitive, fast, and has significantly boosted our user engagement.",
+    name: 'Lisa Chen',
+    title: 'Product Manager, Innovate App',
+    avatarUrl: 'https://placehold.co/100x100.png',
+    dataAiHint: 'person avatar',
+  },
+];
+
 export default function Home() {
+  const initialAnimationDelay = featuredServices.length + portfolioHighlights.length;
+
   return (
     <>
       {/* Hero Section */}
@@ -124,7 +154,7 @@ export default function Home() {
       {/* Our Work Section */}
       <section className="py-16 lg:py-24 bg-secondary/30">
         <Container>
-          <div className="text-center mb-12 animate-fade-in-up">
+          <div className="text-center mb-12 animate-fade-in-up" style={{ animationDelay: `${featuredServices.length * 0.15}s` }}>
             <h2 className="font-headline text-3xl md:text-4xl font-extrabold text-primary mb-4">
               Recent Projects
             </h2>
@@ -171,6 +201,67 @@ export default function Home() {
               <Link href="/portfolio">
                 Explore Full Portfolio
                 <Briefcase className="ml-2 h-5 w-5" />
+              </Link>
+            </Button>
+          </div>
+        </Container>
+      </section>
+
+      {/* Client Testimonials Section */}
+      <section className="py-16 lg:py-24 bg-background">
+        <Container>
+          <div className="text-center mb-12 animate-fade-in-up" style={{ animationDelay: `${initialAnimationDelay * 0.15}s` }}>
+            <h2 className="font-headline text-3xl md:text-4xl font-extrabold text-primary mb-4">
+              What Our Clients Say
+            </h2>
+            <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
+              We pride ourselves on building strong relationships and delivering impactful results.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <div key={testimonial.id} className="animate-fade-in-up" style={{ animationDelay: `${(initialAnimationDelay + index + 1) * 0.15}s` }}>
+                <Card className="h-full flex flex-col shadow-md hover:shadow-xl transition-shadow duration-300">
+                  <CardHeader className="flex-row items-center gap-4 pb-2">
+                     <div className="relative h-16 w-16 rounded-full overflow-hidden border-2 border-primary/20">
+                        <Image
+                        src={testimonial.avatarUrl}
+                        alt={testimonial.name}
+                        layout="fill"
+                        objectFit="cover"
+                        data-ai-hint={testimonial.dataAiHint}
+                        />
+                    </div>
+                    <div>
+                        <CardTitle className="text-lg font-semibold">{testimonial.name}</CardTitle>
+                        <CardDescription className="text-sm">{testimonial.title}</CardDescription>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="flex-grow pt-4">
+                    <Quote className="w-8 h-8 text-primary/30 mb-2" />
+                    <p className="text-foreground/80 italic leading-relaxed">"{testimonial.quote}"</p>
+                  </CardContent>
+                </Card>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* Call to Action Section */}
+      <section className="py-16 lg:py-24 bg-primary/10">
+        <Container>
+          <div className="text-center max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: `${(initialAnimationDelay + testimonials.length + 1) * 0.15}s` }}>
+            <h2 className="font-headline text-3xl md:text-4xl font-extrabold text-primary mb-6">
+              Ready to Start Your Next Project?
+            </h2>
+            <p className="text-lg text-foreground/80 mb-8">
+              Let's discuss how WBMCZ can help you achieve your digital goals. Whether it's a new website, a mobile app, or a comprehensive digital strategy, we're here to bring your vision to life.
+            </p>
+            <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground rounded-full px-10 py-6 text-lg font-semibold shadow-lg transform hover:scale-105">
+              <Link href="/contact">
+                Get a Free Consultation
+                <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
           </div>
