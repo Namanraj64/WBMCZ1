@@ -1,3 +1,4 @@
+
 import Link from 'next/link';
 import Image from 'next/image';
 import Container from '@/components/ui/container';
@@ -69,8 +70,7 @@ export default function PortfolioPage() {
       <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {projects.map((project, index) => (
           <div key={project.id} className="animate-fade-in-up" style={{animationDelay: `${index * 0.1}s`}}>
-            <Link href={`/portfolio/${project.id}`} legacyBehavior>
-              <a className="block h-full">
+            <Link href={`/portfolio/${project.id}`} className="block h-full">
                 <Card className="h-full flex flex-col group overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out border-border hover:border-primary">
                   <div className="relative w-full h-56 overflow-hidden">
                     <Image
@@ -95,7 +95,6 @@ export default function PortfolioPage() {
                     </span>
                   </CardFooter>
                 </Card>
-              </a>
             </Link>
           </div>
         ))}

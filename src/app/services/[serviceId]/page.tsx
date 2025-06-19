@@ -284,8 +284,7 @@ export default async function ServiceDetailPage({ params }: { params: { serviceI
             <h2 className="font-headline text-3xl font-bold mb-10 text-center text-primary">Related Case Studies</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {service.relatedCaseStudies.map(project => (
-                <Link key={project.id} href={`/portfolio/${project.id}`} legacyBehavior>
-                  <a className="block h-full">
+                <Link key={project.id} href={`/portfolio/${project.id}`} className="block h-full">
                     <Card className="h-full group overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-1 border-border hover:border-primary">
                       <div className="relative w-full h-56 overflow-hidden">
                         <Image
@@ -307,8 +306,7 @@ export default async function ServiceDetailPage({ params }: { params: { serviceI
                         </CardContent>
                       </CardHeader>
                     </Card>
-                  </a>
-                </Link>
+                  </Link>
               ))}
             </div>
             <div className="text-center mt-12">

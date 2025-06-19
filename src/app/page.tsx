@@ -190,33 +190,31 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {portfolioHighlights.map((project, index) => (
               <div key={project.id} className="animate-fade-in-up" style={{ animationDelay: `${portfolioStartDelay + (index * initialAnimationDelay)}s` }}>
-                 <Link href={`/portfolio/${project.id}`} legacyBehavior>
-                    <a className="block h-full">
-                        <Card className="h-full group overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-1 border-border hover:border-primary">
-                        <div className="relative w-full h-64 overflow-hidden">
-                            <Image
-                            src={project.imageUrl}
-                            alt={project.title}
-                            layout="fill"
-                            objectFit="cover"
-                            className="group-hover:scale-105 transition-transform duration-300"
-                            data-ai-hint={project.dataAiHint}
-                            />
-                        </div>
-                        <CardHeader>
-                            <CardTitle className="text-xl font-semibold group-hover:text-primary transition-colors duration-300">{project.title}</CardTitle>
-                            <CardDescription className="text-sm text-muted-foreground">{project.category}</CardDescription>
-                        </CardHeader>
-                        <CardContent>
-                            <p className="text-foreground/70 line-clamp-2">{project.description}</p>
-                        </CardContent>
-                        <CardFooter>
-                            <span className="text-sm text-accent font-medium group-hover:underline flex items-center">
-                                View Project <ArrowRight size={16} className="ml-1 transition-transform duration-300 group-hover:translate-x-1" />
-                            </span>
-                        </CardFooter>
-                        </Card>
-                    </a>
+                 <Link href={`/portfolio/${project.id}`} className="block h-full">
+                    <Card className="h-full group overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-1 border-border hover:border-primary">
+                    <div className="relative w-full h-64 overflow-hidden">
+                        <Image
+                        src={project.imageUrl}
+                        alt={project.title}
+                        layout="fill"
+                        objectFit="cover"
+                        className="group-hover:scale-105 transition-transform duration-300"
+                        data-ai-hint={project.dataAiHint}
+                        />
+                    </div>
+                    <CardHeader>
+                        <CardTitle className="text-xl font-semibold group-hover:text-primary transition-colors duration-300">{project.title}</CardTitle>
+                        <CardDescription className="text-sm text-muted-foreground">{project.category}</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                        <p className="text-foreground/70 line-clamp-2">{project.description}</p>
+                    </CardContent>
+                    <CardFooter>
+                        <span className="text-sm text-accent font-medium group-hover:underline flex items-center">
+                            View Project <ArrowRight size={16} className="ml-1 transition-transform duration-300 group-hover:translate-x-1" />
+                        </span>
+                    </CardFooter>
+                    </Card>
                 </Link>
               </div>
             ))}
