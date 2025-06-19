@@ -3,7 +3,7 @@ import Container from '@/components/ui/container';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowLeft, CheckCircle, Lightbulb, Settings, Users, BarChart3, ArrowRight, Phone, Mail, LaptopMinimal, Smartphone, CloudCog, Palette, Zap, TrendingUp, Target as TargetIconLucide, FileText, LifeBuoy, Code, Layers, Search as SearchIcon } from 'lucide-react';
+import { ArrowLeft, CheckCircle, Lightbulb, Settings, Users, BarChart3, ArrowRight, Phone, Mail, LaptopMinimal, Smartphone, CloudCog, Palette, Zap, TrendingUp, Target as TargetIconLucide, FileText, LifeBuoy, Code, Layers, Search as SearchIcon, ShieldCheck } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import type { LucideIcon } from 'lucide-react';
 import { notFound } from 'next/navigation';
