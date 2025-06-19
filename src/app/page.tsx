@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import Container from '@/components/ui/container';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
-import { ArrowRight, LaptopMinimal, Smartphone, Palette, Layers, Briefcase, Quote } from 'lucide-react';
+import { ArrowRight, LaptopMinimal, Smartphone, Palette, Layers, Briefcase, Quote, Lightbulb, Users, BarChart3 } from 'lucide-react';
 
 const featuredServices = [
   {
@@ -58,6 +58,24 @@ const portfolioHighlights = [
   },
 ];
 
+const whyChooseUsItems = [
+  {
+    title: 'Innovative Solutions',
+    description: 'We leverage the latest technologies to deliver cutting-edge and future-proof digital products.',
+    icon: Lightbulb,
+  },
+  {
+    title: 'Client-Centric Approach',
+    description: 'Your success is our priority. We collaborate closely to understand your unique needs and goals.',
+    icon: Users,
+  },
+  {
+    title: 'Results-Driven',
+    description: 'We focus on delivering measurable outcomes that drive growth and provide tangible business value.',
+    icon: BarChart3,
+  },
+];
+
 const testimonials = [
   {
     id: 't1',
@@ -86,7 +104,14 @@ const testimonials = [
 ];
 
 export default function Home() {
-  const initialAnimationDelay = featuredServices.length + portfolioHighlights.length;
+  const initialAnimationDelay = 0.15; // Base delay step in seconds
+  const heroDelay = 0;
+  const servicesStartDelay = heroDelay + 0.2;
+  const portfolioStartDelay = servicesStartDelay + (featuredServices.length * initialAnimationDelay);
+  const whyChooseUsStartDelay = portfolioStartDelay + (portfolioHighlights.length * initialAnimationDelay);
+  const testimonialsStartDelay = whyChooseUsStartDelay + (whyChooseUsItems.length * initialAnimationDelay);
+  const ctaStartDelay = testimonialsStartDelay + (testimonials.length * initialAnimationDelay);
+
 
   return (
     <>
@@ -95,7 +120,7 @@ export default function Home() {
         <div className="absolute inset-0 opacity-5">
           {/* Subtle background pattern or elements if desired */}
         </div>
-        <div className="relative z-10 animate-fade-in-up">
+        <div className="relative z-10 animate-fade-in-up" style={{ animationDelay: `${heroDelay}s` }}>
           <h1 className="font-headline text-5xl md:text-7xl font-extrabold tracking-tight mb-6">
             <span className="block">WBMCZ</span>
             <span className="block text-primary">Digital Agency</span>
@@ -118,7 +143,7 @@ export default function Home() {
       {/* Featured Services Section */}
       <section className="py-16 lg:py-24 bg-background">
         <Container>
-          <div className="text-center mb-12 animate-fade-in-up">
+          <div className="text-center mb-12 animate-fade-in-up" style={{ animationDelay: `${servicesStartDelay}s` }}>
             <h2 className="font-headline text-3xl md:text-4xl font-extrabold text-primary mb-4">
               Our Core Services
             </h2>
@@ -128,7 +153,7 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredServices.map((service, index) => (
-              <div key={service.title} className="animate-fade-in-up" style={{ animationDelay: `${index * 0.15}s` }}>
+              <div key={service.title} className="animate-fade-in-up" style={{ animationDelay: `${servicesStartDelay + (index * initialAnimationDelay)}s` }}>
                 <Card className="h-full group overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-1">
                   <CardHeader className="items-center text-center">
                     <div className={`p-4 rounded-full ${service.bgColor} ${service.textColor} group-hover:bg-opacity-100 ${service.hoverBgColor} ${service.hoverTextColor} transition-colors duration-300 mb-4`}>
@@ -154,7 +179,7 @@ export default function Home() {
       {/* Our Work Section */}
       <section className="py-16 lg:py-24 bg-secondary/30">
         <Container>
-          <div className="text-center mb-12 animate-fade-in-up" style={{ animationDelay: `${featuredServices.length * 0.15}s` }}>
+          <div className="text-center mb-12 animate-fade-in-up" style={{ animationDelay: `${portfolioStartDelay}s` }}>
             <h2 className="font-headline text-3xl md:text-4xl font-extrabold text-primary mb-4">
               Recent Projects
             </h2>
@@ -164,7 +189,7 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {portfolioHighlights.map((project, index) => (
-              <div key={project.id} className="animate-fade-in-up" style={{ animationDelay: `${(featuredServices.length + index) * 0.15}s` }}>
+              <div key={project.id} className="animate-fade-in-up" style={{ animationDelay: `${portfolioStartDelay + (index * initialAnimationDelay)}s` }}>
                  <Link href={`/portfolio/${project.id}`} legacyBehavior>
                     <a className="block h-full">
                         <Card className="h-full group overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-1 border-border hover:border-primary">
@@ -196,7 +221,7 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <div className="text-center mt-12 animate-fade-in-up" style={{ animationDelay: `${(featuredServices.length + portfolioHighlights.length) * 0.15}s` }}>
+          <div className="text-center mt-12 animate-fade-in-up" style={{ animationDelay: `${portfolioStartDelay + (portfolioHighlights.length * initialAnimationDelay)}s` }}>
             <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-10 py-6 text-lg font-semibold shadow-md transform hover:scale-105">
               <Link href="/portfolio">
                 Explore Full Portfolio
@@ -207,10 +232,41 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* Client Testimonials Section */}
+      {/* Why Choose Us Section */}
       <section className="py-16 lg:py-24 bg-background">
         <Container>
-          <div className="text-center mb-12 animate-fade-in-up" style={{ animationDelay: `${initialAnimationDelay * 0.15}s` }}>
+          <div className="text-center mb-12 animate-fade-in-up" style={{ animationDelay: `${whyChooseUsStartDelay}s` }}>
+            <h2 className="font-headline text-3xl md:text-4xl font-extrabold text-primary mb-4">
+              Why Partner With WBMCZ?
+            </h2>
+            <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
+              We're more than just a digital agency; we're your dedicated partner in innovation and growth.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {whyChooseUsItems.map((item, index) => (
+              <div key={item.title} className="animate-fade-in-up" style={{ animationDelay: `${whyChooseUsStartDelay + (index * initialAnimationDelay)}s` }}>
+                <Card className="h-full text-center group overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-1">
+                  <CardHeader className="items-center">
+                    <div className="p-4 rounded-full bg-accent/10 text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-colors duration-300 mb-4">
+                      <item.icon className="h-10 w-10" />
+                    </div>
+                    <CardTitle className="text-xl font-semibold group-hover:text-primary transition-colors duration-300">{item.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-foreground/70">{item.description}</p>
+                  </CardContent>
+                </Card>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* Client Testimonials Section */}
+      <section className="py-16 lg:py-24 bg-secondary/30">
+        <Container>
+          <div className="text-center mb-12 animate-fade-in-up" style={{ animationDelay: `${testimonialsStartDelay}s` }}>
             <h2 className="font-headline text-3xl md:text-4xl font-extrabold text-primary mb-4">
               What Our Clients Say
             </h2>
@@ -220,7 +276,7 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <div key={testimonial.id} className="animate-fade-in-up" style={{ animationDelay: `${(initialAnimationDelay + index + 1) * 0.15}s` }}>
+              <div key={testimonial.id} className="animate-fade-in-up" style={{ animationDelay: `${testimonialsStartDelay + (index * initialAnimationDelay)}s` }}>
                 <Card className="h-full flex flex-col shadow-md hover:shadow-xl transition-shadow duration-300">
                   <CardHeader className="flex-row items-center gap-4 pb-2">
                      <div className="relative h-16 w-16 rounded-full overflow-hidden border-2 border-primary/20">
@@ -251,7 +307,7 @@ export default function Home() {
       {/* Call to Action Section */}
       <section className="py-16 lg:py-24 bg-primary/10">
         <Container>
-          <div className="text-center max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: `${(initialAnimationDelay + testimonials.length + 1) * 0.15}s` }}>
+          <div className="text-center max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: `${ctaStartDelay}s` }}>
             <h2 className="font-headline text-3xl md:text-4xl font-extrabold text-primary mb-6">
               Ready to Start Your Next Project?
             </h2>
