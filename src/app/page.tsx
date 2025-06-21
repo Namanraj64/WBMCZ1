@@ -191,7 +191,7 @@ export default function Home() {
 
       {/* Featured Services Section */}
       <section className="py-16 lg:py-24 bg-background">
-        <Container>
+        <Container className="py-0">
           <div className="text-center mb-12 animate-fade-in-up" style={{ animationDelay: `${servicesStartDelay}s` }}>
             <h2 className="font-headline text-3xl md:text-4xl font-extrabold text-primary mb-4">
               Our Core Services
@@ -229,7 +229,7 @@ export default function Home() {
 
       {/* Our Work Section */}
       <section className="py-16 lg:py-24 bg-secondary/30">
-        <Container>
+        <Container className="py-0">
           <div className="text-center mb-12 animate-fade-in-up" style={{ animationDelay: `${portfolioStartDelay}s` }}>
             <h2 className="font-headline text-3xl md:text-4xl font-extrabold text-primary mb-4">
               Recent Projects
@@ -284,7 +284,7 @@ export default function Home() {
 
       {/* Why Partner With WBMCZ? Section */}
       <section className="py-16 lg:py-24 bg-background">
-        <Container>
+        <Container className="py-0">
           <div className="text-center mb-12 animate-fade-in-up" style={{ animationDelay: `${whyChooseUsStartDelay}s` }}>
             <h2 className="font-headline text-3xl md:text-4xl font-extrabold text-primary mb-4">
               Why Partner With WBMCZ?
@@ -317,7 +317,7 @@ export default function Home() {
 
        {/* Our Technologies Section */}
        <section className="py-16 lg:py-24 bg-secondary/30">
-        <Container>
+        <Container className="py-0">
           <div className="text-center mb-12 animate-fade-in-up" style={{ animationDelay: `${techStartDelay}s` }}>
             <h2 className="font-headline text-3xl md:text-4xl font-extrabold text-primary mb-4">
               Technologies We Master
@@ -345,7 +345,7 @@ export default function Home() {
       {/* Client Testimonials Section */}
       <section className="relative py-16 lg:py-24 bg-background overflow-hidden">
         <div className="absolute inset-0 opacity-5" style={{backgroundImage: 'radial-gradient(hsl(var(--border)) 1px, transparent 1px)', backgroundSize: '20px 20px'}}></div>
-        <Container className="relative">
+        <Container className="relative py-0">
           <div className="text-center mb-12 animate-fade-in-up" style={{ animationDelay: `${testimonialsStartDelay}s` }}>
             <h2 className="font-headline text-3xl md:text-4xl font-extrabold text-primary mb-4">
               What Our Clients Say
@@ -387,7 +387,7 @@ export default function Home() {
 
       {/* FAQ Section */}
       <section className="py-16 lg:py-24 bg-secondary/30">
-        <Container>
+        <Container className="py-0">
           <div className="text-center mb-12 animate-fade-in-up" style={{ animationDelay: `${faqStartDelay}s` }}>
             <h2 className="font-headline text-3xl md:text-4xl font-extrabold text-primary mb-4">
               Frequently Asked Questions
@@ -413,7 +413,7 @@ export default function Home() {
 
       {/* Call to Action Section */}
       <section className="py-16 lg:py-24 bg-primary/10">
-        <Container>
+        <Container className="py-0">
           <div className="text-center max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: `${ctaStartDelay}s` }}>
             <h2 className="font-headline text-3xl md:text-4xl font-extrabold text-primary mb-6">
               Ready to Start Your Next Project?
