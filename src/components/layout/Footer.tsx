@@ -6,13 +6,13 @@ export default function Footer() {
   return (
     <footer className="bg-secondary text-secondary-foreground border-t border-border/40">
       <div className="container mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-          <div>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+          <div className='md:col-span-2'>
             <Link href="/" className="flex items-center space-x-2 mb-4" aria-label="WBMCZ Home">
               <Briefcase className="h-8 w-8 text-primary" />
               <span className="font-headline text-2xl font-bold text-primary">WBMCZ</span>
             </Link>
-            <p className="text-sm text-secondary-foreground/80">
+            <p className="text-sm text-secondary-foreground/80 max-w-md">
               Crafting Scalable Digital Solutions for a modern world. We are dedicated to helping businesses thrive through innovative technology.
             </p>
           </div>
@@ -26,20 +26,11 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h3 className="text-lg font-semibold mb-4 font-headline">Contact Us</h3>
+            <h3 className="text-lg font-semibold mb-4 font-headline">Legal</h3>
             <ul className="space-y-2 text-sm">
-              <li className="flex items-center space-x-2">
-                <MapPin size={16} className="text-primary" />
-                <span>123 Digital Avenue, Tech City, TX 75001</span>
-              </li>
-              <li className="flex items-center space-x-2">
-                <Phone size={16} className="text-primary" />
-                <span>(555) 123-4567</span>
-              </li>
-              <li className="flex items-center space-x-2">
-                <Mail size={16} className="text-primary" />
-                <a href="mailto:info@wbmcz.com" className="hover:text-primary transition-colors">info@wbmcz.com</a>
-              </li>
+              <li><Link href="/privacy-policy" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
+              <li><Link href="/terms-of-service" className="hover:text-primary transition-colors">Terms of Service</Link></li>
+              <li><Link href="/cookie-policy" className="hover:text-primary transition-colors">Cookie Policy</Link></li>
             </ul>
           </div>
         </div>
