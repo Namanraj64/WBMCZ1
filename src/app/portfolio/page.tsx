@@ -11,8 +11,8 @@ const projects = [
     id: 'project-alpha',
     title: 'Enterprise CRM Platform',
     description: 'A comprehensive CRM solution designed for large-scale sales teams, improving efficiency and customer engagement.',
-    imageUrl: 'https://placehold.co/600x400.png',
-    dataAiHint: 'dashboard interface',
+    imageUrl: 'https://blogger.googleusercontent.com/img/a/AVvXsEhvwrQstQum2yQkqbfNrlWG6afChRuoM_QGyJ2tEljDxOTou2O-qkSHK8D651UBMi1Rh3_wm0XODOqENVJ2XqZ6Qy5AxmwY72JBXQpbx1Z9-3JtL7AUjIZNQAUw7T2MKLOl2NGG1_jSUwMCLrRin5ytL2rQE44v37ocV2qM8cihibIaf-djE_CsF_HN5_SF',
+    dataAiHint: 'office collaboration',
     category: 'Web Application',
   },
   {
