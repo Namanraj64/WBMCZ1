@@ -94,7 +94,7 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="animate-fade-in-up">
               <h1 className="font-headline text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-6 text-primary leading-tight">
-                Pioneering Digital Excellence
+                About Our Agency
               </h1>
               <p className="text-lg sm:text-xl text-foreground/80 mb-10 max-w-xl">
                 We are a passionate team of designers, developers, and strategists dedicated to crafting exceptional digital experiences that drive growth and innovation.
@@ -118,7 +118,7 @@ export default function AboutPage() {
             </div>
             <div className="animate-fade-in-up hidden md:block" style={{ animationDelay: '0.2s' }}>
               <Image
-                src="https://placehold.co/600x500.png"
+                src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhbiCh2YSXQkepJwJBDD2k9a-RiMQUQwRypT333obxpmg1ZfTlMv0YaArd9gf-dfLTWrjMmCJmLRPHJ7bMguiGFIX1b7xaKxSebmxkBkoVtM-2unpsDBDApcjrAszNq849NHwTKlBvyUiP38ZheJJhEYvQzSfFpLuxPzHr8BorHMsHG3-Tj7ETmPBaK14vp/s1280/WBMCZ%20About.png"
                 alt="A collaborative team working in a modern office"
                 width={600}
                 height={500}
