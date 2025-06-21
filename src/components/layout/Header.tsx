@@ -12,6 +12,7 @@ const navItems = [
   { label: 'About', href: '/about' },
   { label: 'Services', href: '/services' },
   { label: 'Portfolio', href: '/portfolio' },
+  { label: 'Contact', href: '/contact' },
 ];
 
 export default function Header() {
@@ -37,12 +38,6 @@ export default function Header() {
               {item.label}
             </Link>
           ))}
-          <button
-            onClick={openPopup}
-            className="font-medium text-foreground/70 hover:text-primary transition-colors"
-          >
-            Contact
-          </button>
           <Button 
             variant="default" 
             className="bg-primary hover:bg-primary/90 text-primary-foreground"
@@ -77,14 +72,6 @@ export default function Header() {
                     </Link>
                   </SheetClose>
                 ))}
-                <SheetClose asChild>
-                   <button
-                      onClick={openPopup}
-                      className="text-lg font-medium text-foreground hover:text-primary transition-colors text-left"
-                    >
-                      Contact
-                    </button>
-                </SheetClose>
                 <SheetClose asChild>
                   <Button 
                     variant="default" 
