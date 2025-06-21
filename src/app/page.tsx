@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import Container from '@/components/ui/container';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
-import { ArrowRight, LaptopMinimal, Smartphone, Palette, Briefcase, Quote, Lightbulb, Users, BarChart3, Code, Cloud, Database, Wind } from 'lucide-react';
+import { ArrowRight, LaptopMinimal, Smartphone, Palette, Briefcase, Quote, Lightbulb, Users, BarChart3, Code, Cloud, Database, Wind, Terminal, GitBranch, Cpu } from 'lucide-react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 
@@ -166,9 +166,15 @@ export default function Home() {
     <>
       {/* Hero Section */}
       <section className="relative min-h-[calc(100vh-4rem)] flex items-center justify-center text-center bg-gradient-to-br from-primary/10 via-background to-background p-8 overflow-hidden">
-        <div className="absolute inset-0 opacity-5">
-          {/* Subtle background pattern or elements if desired */}
+        <div className="absolute inset-0 z-0 opacity-5 pointer-events-none">
+            <Code className="absolute top-[20%] left-[10%] h-16 w-16 text-primary animate-float" style={{ animationDuration: '8s' }} />
+            <Database className="absolute top-[60%] left-[20%] h-20 w-20 text-accent animate-float" style={{ animationDuration: '10s', animationDelay: '1s' }}/>
+            <Cloud className="absolute top-[30%] left-[50%] h-24 w-24 text-primary animate-float" style={{ animationDuration: '12s', animationDelay: '2s' }} />
+            <Terminal className="absolute top-[15%] right-[15%] h-12 w-12 text-accent animate-float" style={{ animationDuration: '7s', animationDelay: '3s' }} />
+            <GitBranch className="absolute bottom-[20%] right-[10%] h-16 w-16 text-primary animate-float" style={{ animationDuration: '9s', animationDelay: '0.5s' }} />
+            <Cpu className="absolute bottom-[10%] left-[45%] h-14 w-14 text-accent animate-float" style={{ animationDuration: '11s', animationDelay: '1.5s' }} />
         </div>
+
         <div className="relative z-10 animate-fade-in-up" style={{ animationDelay: `${heroDelay}s` }}>
           <h1 className="font-headline text-5xl md:text-7xl font-extrabold tracking-tight mb-6">
             <span className="block">WBMCZ</span>
@@ -184,14 +190,11 @@ export default function Home() {
             </Link>
           </Button>
         </div>
-         {/* Decorative shapes */}
-         <div className="absolute -bottom-1/4 -left-1/4 w-1/2 h-1/2 bg-primary/5 rounded-full opacity-50 animate-pulse blur-2xl"></div>
-         <div className="absolute -top-1/4 -right-1/4 w-1/2 h-1/2 bg-accent/5 rounded-full opacity-50 animate-pulse blur-2xl animation-delay-2000"></div>
       </section>
 
       {/* Featured Services Section */}
       <section className="bg-background">
-        <Container>
+        <Container className="py-0">
           <div className="text-center mb-12 animate-fade-in-up" style={{ animationDelay: `${servicesStartDelay}s` }}>
             <h2 className="font-headline text-3xl md:text-4xl font-extrabold text-primary mb-4">
               Our Core Services
@@ -229,7 +232,7 @@ export default function Home() {
 
       {/* Our Work Section */}
       <section className="bg-secondary/30">
-        <Container>
+        <Container className="py-0">
           <div className="text-center mb-12 animate-fade-in-up" style={{ animationDelay: `${portfolioStartDelay}s` }}>
             <h2 className="font-headline text-3xl md:text-4xl font-extrabold text-primary mb-4">
               Recent Projects
@@ -284,7 +287,7 @@ export default function Home() {
 
       {/* Why Partner With WBMCZ? Section */}
       <section className="bg-background">
-        <Container>
+        <Container className="py-0">
           <div className="text-center mb-12 animate-fade-in-up" style={{ animationDelay: `${whyChooseUsStartDelay}s` }}>
             <h2 className="font-headline text-3xl md:text-4xl font-extrabold text-primary mb-4">
               Why Partner With WBMCZ?
@@ -317,7 +320,7 @@ export default function Home() {
 
        {/* Our Technologies Section */}
        <section className="bg-secondary/30">
-        <Container>
+        <Container className="py-0">
           <div className="text-center mb-12 animate-fade-in-up" style={{ animationDelay: `${techStartDelay}s` }}>
             <h2 className="font-headline text-3xl md:text-4xl font-extrabold text-primary mb-4">
               Technologies We Master
@@ -344,8 +347,8 @@ export default function Home() {
 
       {/* Client Testimonials Section */}
       <section className="relative bg-background overflow-hidden">
-        <div className="absolute inset-0 opacity-5" style={{backgroundImage: 'radial-gradient(hsl(var(--border)) 1px, transparent 1px)', backgroundSize: '20px 20px'}}></div>
-        <Container className="relative">
+        <Container className="py-0 relative">
+          <div className="absolute inset-0 opacity-5" style={{backgroundImage: 'radial-gradient(hsl(var(--border)) 1px, transparent 1px)', backgroundSize: '20px 20px'}}></div>
           <div className="text-center mb-12 animate-fade-in-up" style={{ animationDelay: `${testimonialsStartDelay}s` }}>
             <h2 className="font-headline text-3xl md:text-4xl font-extrabold text-primary mb-4">
               What Our Clients Say
@@ -387,7 +390,7 @@ export default function Home() {
 
       {/* FAQ Section */}
       <section className="bg-secondary/30">
-        <Container>
+        <Container className="py-0">
           <div className="text-center mb-12 animate-fade-in-up" style={{ animationDelay: `${faqStartDelay}s` }}>
             <h2 className="font-headline text-3xl md:text-4xl font-extrabold text-primary mb-4">
               Frequently Asked Questions
@@ -413,7 +416,7 @@ export default function Home() {
 
       {/* Call to Action Section */}
       <section className="bg-primary/10">
-        <Container>
+        <Container className="py-0">
           <div className="text-center max-w-3xl mx-auto animate-fade-in-up" style={{ animationDelay: `${ctaStartDelay}s` }}>
             <h2 className="font-headline text-3xl md:text-4xl font-extrabold text-primary mb-6">
               Ready to Start Your Next Project?
