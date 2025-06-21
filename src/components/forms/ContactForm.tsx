@@ -43,8 +43,11 @@ async function submitContactForm(data: FormData) {
   return { success: true, message: "Message sent successfully!" };
 }
 
+interface ContactFormProps {
+  onSuccess?: () => void;
+}
 
-export default function ContactForm() {
+export default function ContactForm({ onSuccess }: ContactFormProps) {
   const { toast } = useToast();
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
@@ -67,6 +70,7 @@ export default function ContactForm() {
           description: result.message,
         });
         form.reset();
+        onSuccess?.(); // Call the success callback
       } else {
         // This part might not be reached if server action throws error
         toast({
