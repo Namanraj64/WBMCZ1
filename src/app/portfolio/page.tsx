@@ -19,7 +19,7 @@ const projects = [
     id: 'project-beta',
     title: 'E-commerce Mobile App',
     description: 'A sleek and user-friendly mobile app for a fashion retailer, boosting sales and brand loyalty.',
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: 'https://blogger.googleusercontent.com/img/a/AVvXsEghDcCYCH3_5VDVRRv9lCB4EIZ_9bkQuZcx-yfrGchrRSt9C4liEVXijYIm4aZxnlWPWEBWaRYMS_8xUed1OI97IC37kXd4OKIgrdzH8K_Qn1Boq2IHApbtJijADWuhVqgPqfJCrRkCdLG78TwbrA12rJrVKscJaUEZ8aw8wTRDq-uPrnRObEac7YOuTJdA',
     dataAiHint: 'mobile app shopping',
     category: 'Mobile App',
   },

@@ -54,7 +54,7 @@ const portfolioHighlights = [
     id: 'project-beta',
     title: 'E-commerce Mobile App',
     category: 'Mobile App',
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: 'https://blogger.googleusercontent.com/img/a/AVvXsEghDcCYCH3_5VDVRRv9lCB4EIZ_9bkQuZcx-yfrGchrRSt9C4liEVXijYIm4aZxnlWPWEBWaRYMS_8xUed1OI97IC37kXd4OKIgrdzH8K_Qn1Boq2IHApbtJijADWuhVqgPqfJCrRkCdLG78TwbrA12rJrVKscJaUEZ8aw8wTRDq-uPrnRObEac7YOuTJdA',
     dataAiHint: 'mobile app shopping',
     description: 'A sleek, high-performance mobile app that boosted sales by 40% and significantly enhanced brand loyalty for a popular fashion retailer.',
   },
