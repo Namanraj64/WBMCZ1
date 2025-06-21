@@ -76,8 +76,9 @@ export default function PortfolioPage() {
                     <Image
                       src={project.imageUrl}
                       alt={project.title}
-                      layout="fill"
-                      objectFit="cover"
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      style={{objectFit: 'cover'}}
                       className="group-hover:scale-105 transition-transform duration-300"
                       data-ai-hint={project.dataAiHint}
                     />

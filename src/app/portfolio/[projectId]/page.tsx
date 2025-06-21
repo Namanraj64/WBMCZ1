@@ -68,8 +68,9 @@ export default async function ProjectDetailsPage({ params }: { params: { project
           <Image 
             src={project.imageUrl} 
             alt={project.title} 
-            layout="fill" 
-            objectFit="cover"
+            fill
+            sizes="100vw"
+            style={{objectFit: 'cover'}}
             data-ai-hint={project.dataAiHint}
           />
         </div>

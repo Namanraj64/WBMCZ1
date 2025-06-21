@@ -196,8 +196,9 @@ export default function Home() {
                         <Image
                         src={project.imageUrl}
                         alt={project.title}
-                        layout="fill"
-                        objectFit="cover"
+                        fill
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        style={{objectFit: 'cover'}}
                         className="group-hover:scale-105 transition-transform duration-300"
                         data-ai-hint={project.dataAiHint}
                         />
@@ -281,8 +282,9 @@ export default function Home() {
                         <Image
                         src={testimonial.avatarUrl}
                         alt={testimonial.name}
-                        layout="fill"
-                        objectFit="cover"
+                        fill
+                        sizes="64px"
+                        style={{objectFit: 'cover'}}
                         data-ai-hint={testimonial.dataAiHint}
                         />
                     </div>
