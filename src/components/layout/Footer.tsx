@@ -6,8 +6,8 @@ export default function Footer() {
   return (
     <footer className="bg-secondary text-secondary-foreground border-t border-border/40">
       <div className="container mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-          <div className='md:col-span-2'>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+          <div className='lg:col-span-1'>
             <Link href="/" className="flex items-center space-x-2 mb-4" aria-label="WBMCZ Home">
               <Briefcase className="h-8 w-8 text-primary" />
               <span className="font-headline text-2xl font-bold text-primary">WBMCZ</span>
@@ -31,6 +31,23 @@ export default function Footer() {
               <li><Link href="/privacy-policy" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
               <li><Link href="/terms-of-service" className="hover:text-primary transition-colors">Terms of Service</Link></li>
               <li><Link href="/cookie-policy" className="hover:text-primary transition-colors">Cookie Policy</Link></li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold mb-4 font-headline">Contact Us</h3>
+            <ul className="space-y-3 text-sm">
+              <li className="flex items-start">
+                <MapPin className="h-4 w-4 mr-3 mt-1 shrink-0 text-primary" />
+                <span className="text-secondary-foreground/80">123 Digital Avenue, Tech City, TX 75001, USA</span>
+              </li>
+              <li className="flex items-center">
+                <Phone className="h-4 w-4 mr-3 shrink-0 text-primary" />
+                <a href="tel:+15551234567" className="hover:text-primary transition-colors text-secondary-foreground/80">(555) 123-4567</a>
+              </li>
+              <li className="flex items-center">
+                <Mail className="h-4 w-4 mr-3 shrink-0 text-primary" />
+                <a href="mailto:info@wbmcz.com" className="hover:text-primary transition-colors text-secondary-foreground/80">info@wbmcz.com</a>
+              </li>
             </ul>
           </div>
         </div>
