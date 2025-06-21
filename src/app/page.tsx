@@ -34,8 +34,8 @@ const featuredServices = [
     description: 'Designing user-centric interfaces that are both beautiful and highly functional.',
     icon: Palette,
     href: '/services/ui-ux',
-    bgColor: 'bg-secondary/50', 
-    textColor: 'text-secondary-foreground', 
+    bgColor: 'bg-secondary/50',
+    textColor: 'text-secondary-foreground',
     hoverBgColor: 'hover:bg-secondary',
     hoverTextColor: 'hover:text-secondary-foreground/80'
   },
@@ -203,21 +203,23 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredServices.map((service, index) => (
               <div key={service.title} className="animate-fade-in-up" style={{ animationDelay: `${servicesStartDelay + (index * initialAnimationDelay)}s` }}>
-                <Card className="h-full group overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-1">
+                <Card className="h-full flex flex-col group overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-1">
                   <CardHeader className="items-center text-center">
                     <div className={`p-4 rounded-full ${service.bgColor} ${service.textColor} group-hover:bg-opacity-100 ${service.hoverBgColor} ${service.hoverTextColor} transition-colors duration-300 mb-4`}>
                       <service.icon className="h-10 w-10" />
                     </div>
                     <CardTitle className="text-xl font-semibold group-hover:text-primary transition-colors duration-300">{service.title}</CardTitle>
                   </CardHeader>
-                  <CardContent className="text-center">
-                    <p className="text-foreground/70 mb-6">{service.description}</p>
+                  <CardContent className="text-center flex-grow">
+                    <p className="text-foreground/70">{service.description}</p>
+                  </CardContent>
+                  <CardFooter className="justify-center pt-4">
                     <Button variant="outline" asChild className="group-hover:bg-accent group-hover:text-accent-foreground group-hover:border-accent transition-colors duration-300">
                       <Link href={service.href}>
                         Learn More <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
                       </Link>
                     </Button>
-                  </CardContent>
+                  </CardFooter>
                 </Card>
               </div>
             ))}
@@ -239,8 +241,8 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {portfolioHighlights.map((project, index) => (
               <div key={project.id} className="animate-fade-in-up" style={{ animationDelay: `${portfolioStartDelay + (index * initialAnimationDelay)}s` }}>
-                 <Link href={`/portfolio/${project.id}`} className="block h-full">
-                    <Card className="h-full group overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-1 border-border hover:border-primary">
+                 <Link href={`/portfolio/${project.id}`} className="block h-full group">
+                    <Card className="h-full flex flex-col overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-1 border-border hover:border-primary">
                     <div className="relative w-full h-64 overflow-hidden">
                         <Image
                         src={project.imageUrl}
@@ -251,19 +253,19 @@ export default function Home() {
                         className="group-hover:scale-105 transition-transform duration-300"
                         data-ai-hint={project.dataAiHint}
                         />
+                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-all duration-300 flex items-center justify-center">
+                          <span className="text-white text-lg font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center">
+                            View Project <ArrowRight size={20} className="ml-2" />
+                          </span>
+                        </div>
                     </div>
                     <CardHeader>
                         <CardTitle className="text-xl font-semibold group-hover:text-primary transition-colors duration-300">{project.title}</CardTitle>
                         <CardDescription className="text-sm text-muted-foreground">{project.category}</CardDescription>
                     </CardHeader>
-                    <CardContent>
+                    <CardContent className="flex-grow">
                         <p className="text-foreground/70 line-clamp-3">{project.description}</p>
                     </CardContent>
-                    <CardFooter>
-                        <span className="text-sm text-accent font-medium group-hover:underline flex items-center">
-                            View Project <ArrowRight size={16} className="ml-1 transition-transform duration-300 group-hover:translate-x-1" />
-                        </span>
-                    </CardFooter>
                     </Card>
                 </Link>
               </div>
@@ -280,7 +282,7 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* Why Choose Us Section */}
+      {/* Why Partner With WBMCZ? Section */}
       <section className="py-16 lg:py-24 bg-background">
         <Container>
           <div className="text-center mb-12 animate-fade-in-up" style={{ animationDelay: `${whyChooseUsStartDelay}s` }}>
@@ -294,15 +296,17 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {whyChooseUsItems.map((item, index) => (
               <div key={item.title} className="animate-fade-in-up" style={{ animationDelay: `${whyChooseUsStartDelay + (index * initialAnimationDelay)}s` }}>
-                <Card className="h-full text-center group overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-1">
-                  <CardHeader className="items-center">
-                    <div className="p-4 rounded-full bg-accent/10 text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-colors duration-300 mb-4">
-                      <item.icon className="h-10 w-10" />
+                <Card className="h-full group overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-1 border-transparent hover:border-accent/30">
+                  <CardContent className="p-6 flex flex-col sm:flex-row items-start text-left gap-4">
+                    <div className="flex-shrink-0">
+                      <div className="p-3 rounded-lg bg-accent/10 text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-colors duration-300">
+                        <item.icon className="h-8 w-8" />
+                      </div>
                     </div>
-                    <CardTitle className="text-xl font-semibold group-hover:text-primary transition-colors duration-300">{item.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-foreground/70">{item.description}</p>
+                    <div>
+                      <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors duration-300">{item.title}</h3>
+                      <p className="text-foreground/70">{item.description}</p>
+                    </div>
                   </CardContent>
                 </Card>
               </div>
@@ -325,11 +329,13 @@ export default function Home() {
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-6">
             {technologies.map((tech, index) => (
               <div key={tech.name} className="animate-fade-in-up" style={{ animationDelay: `${techStartDelay + (index * initialAnimationDelay)}s` }}>
-                <div className="flex flex-col items-center justify-center text-center p-4 h-full rounded-lg border border-border bg-card hover:shadow-lg transition-shadow duration-300">
-                  <tech.icon className="h-10 w-10 mb-3 text-accent" />
-                  <h3 className="font-semibold text-lg mb-1 text-card-foreground">{tech.name}</h3>
-                  <p className="text-sm text-muted-foreground">{tech.description}</p>
-                </div>
+                <Card className="text-center h-full hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out">
+                  <CardContent className="p-6 flex flex-col items-center justify-center">
+                    <tech.icon className="h-10 w-10 mb-3 text-accent" />
+                    <h3 className="font-semibold text-lg mb-1 text-card-foreground">{tech.name}</h3>
+                    <p className="text-sm text-muted-foreground">{tech.description}</p>
+                  </CardContent>
+                </Card>
               </div>
             ))}
           </div>
@@ -337,8 +343,9 @@ export default function Home() {
       </section>
 
       {/* Client Testimonials Section */}
-      <section className="py-16 lg:py-24 bg-background">
-        <Container>
+      <section className="relative py-16 lg:py-24 bg-background overflow-hidden">
+        <div className="absolute inset-0 opacity-5" style={{backgroundImage: 'radial-gradient(hsl(var(--border)) 1px, transparent 1px)', backgroundSize: '20px 20px'}}></div>
+        <Container className="relative">
           <div className="text-center mb-12 animate-fade-in-up" style={{ animationDelay: `${testimonialsStartDelay}s` }}>
             <h2 className="font-headline text-3xl md:text-4xl font-extrabold text-primary mb-4">
               What Our Clients Say
@@ -350,7 +357,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {testimonials.map((testimonial, index) => (
               <div key={testimonial.id} className="animate-fade-in-up" style={{ animationDelay: `${testimonialsStartDelay + (index * initialAnimationDelay)}s` }}>
-                <Card className="h-full flex flex-col shadow-md hover:shadow-xl transition-shadow duration-300">
+                <Card className="h-full flex flex-col bg-card shadow-md hover:shadow-xl transition-shadow duration-300">
                   <CardHeader className="flex-row items-center gap-4 pb-2">
                      <div className="relative h-16 w-16 rounded-full overflow-hidden border-2 border-primary/20">
                         <Image
