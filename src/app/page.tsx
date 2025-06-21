@@ -62,8 +62,8 @@ const portfolioHighlights = [
     id: 'project-gamma',
     title: 'Cloud Infrastructure Overhaul',
     category: 'Cloud & DevOps',
-    imageUrl: 'https://placehold.co/600x400.png',
-    dataAiHint: 'cloud infrastructure',
+    imageUrl: 'https://blogger.googleusercontent.com/img/a/AVvXsEjVzzfUo8-gx_0YFCIn21--kQ8T0rVFmgEj8q_UdQGtBnwUG5sMyd_NepFMT1kav0j6_qm6jO5x3bpWSZPeSbb5W5yOY4p4EYVV5kN6k78v3kiJgZPUy6sCZsPHqmQF-1MoXiVxXXxVEoglqlKdfDJc03VaMGi8rs62xi-gjE0HQledJU4LHAZBkpTjzgV3',
+    dataAiHint: 'cloud security',
     description: 'Migrated legacy systems to a scalable, secure cloud architecture, resulting in 99.9% uptime and reduced operational costs.',
   },
 ];

@@ -27,7 +27,7 @@ const projects = [
     id: 'project-gamma',
     title: 'Cloud Migration for Fintech',
     description: 'Successfully migrated a legacy financial system to a modern cloud infrastructure, enhancing security and scalability.',
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: 'https://blogger.googleusercontent.com/img/a/AVvXsEjVzzfUo8-gx_0YFCIn21--kQ8T0rVFmgEj8q_UdQGtBnwUG5sMyd_NepFMT1kav0j6_qm6jO5x3bpWSZPeSbb5W5yOY4p4EYVV5kN6k78v3kiJgZPUy6sCZsPHqmQF-1MoXiVxXXxVEoglqlKdfDJc03VaMGi8rs62xi-gjE0HQledJU4LHAZBkpTjzgV3',
     dataAiHint: 'cloud security',
     category: 'Cloud & DevOps',
   },
